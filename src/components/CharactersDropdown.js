@@ -10,12 +10,12 @@ const CharactersDropdown = (props) => {
   };
   return (
     <ListGroup style={style} className="charactersDropdown">
-      <ListGroup.Item variant="dark" onClick={props.closeFoundCharacter}>
+      <ListGroup.Item action variant="dark" onClick={props.closeFoundCharacter}>
         Close
       </ListGroup.Item>
-      <ListGroup.Item>Character 1</ListGroup.Item>
-      <ListGroup.Item>Character 2</ListGroup.Item>
-      <ListGroup.Item>Character 3</ListGroup.Item>
+      <ListGroup.Item action>Character 1</ListGroup.Item>
+      <ListGroup.Item action>Character 2</ListGroup.Item>
+      <ListGroup.Item action>Character 3</ListGroup.Item>
     </ListGroup>
   );
 };

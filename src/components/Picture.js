@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import CharactersDropdown from "./CharactersDropdown";
 import picture from "../assets/picture.jpg";
 import { Image, Button } from "react-bootstrap";
