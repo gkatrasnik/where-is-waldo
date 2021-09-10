@@ -6,10 +6,17 @@ import "../styles/picture.css";
 
 function Picture() {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
-  const [coordinates, setCoordinates] = useState(null);
+  const [coordinates, setCoordinates] = useState([0, 0]);
+  const [foundSquares, setFoundSquares] = useState([]);
 
   const handleClick = (e) => {
-    getCoordinates(e);
+    let x = e.pageX;
+    let y = e.pageY;
+    console.log(x, y);
+    setCoordinates([x, y]);
+    if (!showFoundCharacter) {
+      addFoundSquare(x, y);
+    }
     setShowFoundCharacter(!showFoundCharacter);
   };
 
@@ -17,11 +24,23 @@ function Picture() {
     setShowFoundCharacter(false);
   };
 
-  const getCoordinates = (e) => {
-    let x = e.pageX;
-    let y = e.pageY;
-    console.log(x, y);
-    setCoordinates([x, y]);
+  const foundIsCorrect = () => {
+    return true;
+  };
+
+  const addFoundSquare = (x, y) => {
+    const squareStyle = {
+      position: "absolute",
+      left: `${x - 25}px`,
+      top: `${y - 25}px`,
+      width: "50px",
+      height: "50px",
+      border: "4px solid red",
+    };
+    const newSquare = <div style={squareStyle}></div>;
+    if (foundIsCorrect()) {
+      setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
+    }
   };
 
   return (
@@ -33,6 +52,8 @@ function Picture() {
           closeFoundCharacter={closeFoundCharacter}
         />
       )}
+
+      {foundSquares}
     </>
   );
 }

@@ -5,7 +5,7 @@ import "../styles/charactersDropdown.css";
 const CharactersDropdown = (props) => {
   const style = {
     position: "absolute",
-    left: `${props.coordinates[0]}px`,
+    left: `${props.coordinates[0] + 25}px`,
     top: `${props.coordinates[1]}px`,
   };
   return (
