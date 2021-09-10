@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/where-is-waldo/static/css/main.4383ccf5.chunk.css",
-    "main.js": "/where-is-waldo/static/js/main.b3cfc0bd.chunk.js",
-    "main.js.map": "/where-is-waldo/static/js/main.b3cfc0bd.chunk.js.map",
-    "runtime-main.js": "/where-is-waldo/static/js/runtime-main.ad96bfc3.js",
-    "runtime-main.js.map": "/where-is-waldo/static/js/runtime-main.ad96bfc3.js.map",
+    "main.js": "/where-is-waldo/static/js/main.b0921b1a.chunk.js",
+    "main.js.map": "/where-is-waldo/static/js/main.b0921b1a.chunk.js.map",
+    "runtime-main.js": "/where-is-waldo/static/js/runtime-main.f64446c3.js",
+    "runtime-main.js.map": "/where-is-waldo/static/js/runtime-main.f64446c3.js.map",
     "static/css/2.818011ed.chunk.css": "/where-is-waldo/static/css/2.818011ed.chunk.css",
-    "static/js/2.da75a33b.chunk.js": "/where-is-waldo/static/js/2.da75a33b.chunk.js",
-    "static/js/2.da75a33b.chunk.js.map": "/where-is-waldo/static/js/2.da75a33b.chunk.js.map",
-    "static/js/3.00ff75de.chunk.js": "/where-is-waldo/static/js/3.00ff75de.chunk.js",
-    "static/js/3.00ff75de.chunk.js.map": "/where-is-waldo/static/js/3.00ff75de.chunk.js.map",
+    "static/js/2.4135262f.chunk.js": "/where-is-waldo/static/js/2.4135262f.chunk.js",
+    "static/js/2.4135262f.chunk.js.map": "/where-is-waldo/static/js/2.4135262f.chunk.js.map",
+    "static/js/3.416c57a5.chunk.js": "/where-is-waldo/static/js/3.416c57a5.chunk.js",
+    "static/js/3.416c57a5.chunk.js.map": "/where-is-waldo/static/js/3.416c57a5.chunk.js.map",
     "index.html": "/where-is-waldo/index.html",
     "service-worker.js": "/where-is-waldo/service-worker.js",
     "service-worker.js.map": "/where-is-waldo/service-worker.js.map",
     "static/css/2.818011ed.chunk.css.map": "/where-is-waldo/static/css/2.818011ed.chunk.css.map",
     "static/css/main.4383ccf5.chunk.css.map": "/where-is-waldo/static/css/main.4383ccf5.chunk.css.map",
-    "static/js/2.da75a33b.chunk.js.LICENSE.txt": "/where-is-waldo/static/js/2.da75a33b.chunk.js.LICENSE.txt",
+    "static/js/2.4135262f.chunk.js.LICENSE.txt": "/where-is-waldo/static/js/2.4135262f.chunk.js.LICENSE.txt",
     "static/media/picture.a621ccfd.jpg": "/where-is-waldo/static/media/picture.a621ccfd.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ad96bfc3.js",
+    "static/js/runtime-main.f64446c3.js",
     "static/css/2.818011ed.chunk.css",
-    "static/js/2.da75a33b.chunk.js",
+    "static/js/2.4135262f.chunk.js",
     "static/css/main.4383ccf5.chunk.css",
-    "static/js/main.b3cfc0bd.chunk.js"
+    "static/js/main.b0921b1a.chunk.js"
   ]
 }
