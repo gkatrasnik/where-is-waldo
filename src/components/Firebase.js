@@ -1,0 +1,17 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAvQcbzXdQfFcp5j3LErFUWtHPik5Qfu38",
+  authDomain: "where-is-waldo-fcfa2.firebaseapp.com",
+  projectId: "where-is-waldo-fcfa2",
+  storageBucket: "where-is-waldo-fcfa2.appspot.com",
+  messagingSenderId: "318862658885",
+  appId: "1:318862658885:web:cb2e2c6e6e4ab04f5ec22c",
+};
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+
+//export const timestamp = db.Timestamp.now();
+export default app;

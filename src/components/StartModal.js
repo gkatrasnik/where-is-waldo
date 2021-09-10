@@ -16,6 +16,7 @@ const StartModal = (props) => {
         onSubmit={(e) => {
           props.toggleShowStartModal();
           props.handleStartModalSubmit(e, playerName);
+          props.getResultsData();
         }}
       >
         <Modal.Body>
@@ -30,10 +31,12 @@ const StartModal = (props) => {
               Your Nickname will be displayed on leaderboard
             </Form.Text>
           </Form.Group>
-          <Button type="submit" className="float-end mb-3" variant="primary">
+        </Modal.Body>
+        <Modal.Footer>
+          <Button type="submit" variant="primary">
             Play
           </Button>
-        </Modal.Body>
+        </Modal.Footer>
       </Form>
     </Modal>
   );
