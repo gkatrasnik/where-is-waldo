@@ -4,7 +4,7 @@ import picture from "../assets/picture.jpg";
 import { Image, Button } from "react-bootstrap";
 import "../styles/picture.css";
 
-function Picture() {
+function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
   const [coordinates, setCoordinates] = useState([0, 0]);
   const [foundSquares, setFoundSquares] = useState([]);
@@ -43,7 +43,12 @@ function Picture() {
 
   return (
     <>
-      <Image onClick={handleClick} src={picture} className="picture" />
+      <Image
+        onClick={handleClick}
+        src={picture}
+        className="picture"
+        onLoad={props.setWindowSize}
+      />
       {showFoundCharacter && (
         <CharactersDropdown
           coordinates={coordinates}

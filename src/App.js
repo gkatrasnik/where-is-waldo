@@ -14,6 +14,14 @@ function App() {
   const [showGameOverModal, setShowGameOverModal] = useState(false);
   const [resultsData, setResultsData] = useState([]);
   const [player, setPlayer] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(null);
+  const [windowHeight, setWindowHeight] = useState(null);
+
+  const setWindowSize = () => {
+    setWindowWidth(document.body.clientWidth);
+    setWindowHeight(document.body.clientHeight);
+    console.log("size", document.body.clientWidth, document.body.clientHeight);
+  };
 
   const getResultsData = async () => {
     let array = [];
@@ -37,6 +45,10 @@ function App() {
     setPlayer(playerName);
   };
 
+  const picStyle = {
+    overflow: "hidden",
+  };
+
   return (
     <>
       <StartModal
@@ -55,7 +67,7 @@ function App() {
         toggleShowGameOverModal={toggleShowGameOverModal}
         player={player}
       />
-      <Picture />
+      <Picture style={picStyle} setWindowSize={setWindowSize} />
     </>
   );
 }
