@@ -10,9 +10,13 @@ const CharactersDropdown = (props) => {
     zIndex: 1,
   };
 
-  const handleChoose = () => {
+  const handleChoose = (item) => {
     if (!props.showFoundCharacter) {
-      props.addFoundSquare(props.coordinates[0], props.coordinates[1]);
+      console.log(item);
+      if (props.foundIsCorrect(item)) {
+        props.addFoundSquare(props.coordinates[0], props.coordinates[1]);
+        props.handleFoundCharacter(item);
+      }
     }
     props.closeFoundCharacter();
   };
@@ -23,7 +27,7 @@ const CharactersDropdown = (props) => {
       </ListGroup.Item>
       {props.charactersArray.map((item, i) => {
         return (
-          <ListGroup.Item key={i} action onClick={handleChoose}>
+          <ListGroup.Item key={i} action onClick={() => handleChoose(item)}>
             {item.name}
           </ListGroup.Item>
         );

@@ -9,15 +9,6 @@ function Picture(props) {
   const [coordinates, setCoordinates] = useState([0, 0]);
   const [foundSquares, setFoundSquares] = useState([]);
 
-  useEffect(() => {
-    props.characters.map((item) => {
-      addFoundSquare(
-        item.position[0] * props.windowWidth,
-        item.position[1] * props.windowHeight
-      );
-    });
-  }, [props.characters, props.windowHeight, props.windowWidth]);
-
   const handleClick = (e) => {
     let x = e.pageX;
     let y = e.pageY;
@@ -31,13 +22,21 @@ function Picture(props) {
     setShowFoundCharacter(false);
   };
 
-  const foundIsCorrect = () => {
-    return true;
+  const foundIsCorrect = (item) => {
+    if (
+      coordinates[0] < item.position[0] * props.windowWidth + 30 &&
+      coordinates[0] > item.position[0] * props.windowWidth - 30 &&
+      coordinates[1] < item.position[1] * props.windowHeight + 30 &&
+      coordinates[1] > item.position[1] * props.windowHeight - 30
+    ) {
+      console.log("FOUND------------------");
+      return true;
+    }
+    console.log("not found");
+    return false;
   };
 
   const addFoundSquare = (x, y) => {
-    //const x0 = x - 0.03 * props.windowWidth;
-    //const y0 = y - 0.08 * props.windowHeight + 56;
     const squareStyle = {
       position: "absolute",
       left: `${x - 30}px`,
@@ -46,10 +45,9 @@ function Picture(props) {
       height: 60,
       border: "4px solid red",
     };
-    const newSquare = <div style={squareStyle} key={x + y}></div>;
-    if (foundIsCorrect()) {
-      setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
-    }
+    const newSquare = <div style={squareStyle}></div>;
+
+    setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
   };
 
   return (
@@ -64,6 +62,7 @@ function Picture(props) {
         <CharactersDropdown
           coordinates={coordinates}
           charactersArray={props.charactersArray}
+          handleFoundCharacter={props.handleFoundCharacter}
           closeFoundCharacter={closeFoundCharacter}
           foundIsCorrect={foundIsCorrect}
           addFoundSquare={addFoundSquare}

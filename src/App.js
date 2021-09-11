@@ -20,6 +20,7 @@ function App() {
 
   useEffect(() => {
     setCharactersArray(characters);
+    console.log("loaded original characters");
   }, []);
 
   const setWindowSize = () => {
@@ -50,6 +51,13 @@ function App() {
     setPlayer(playerName);
   };
 
+  const handleFoundCharacter = (item) => {
+    const index = item.id;
+    let newArray = charactersArray.filter((item) => item.id !== index);
+    setCharactersArray(newArray);
+    console.log(newArray);
+  };
+
   const picStyle = {
     overflow: "hidden",
   };
@@ -76,6 +84,7 @@ function App() {
       <Picture
         style={picStyle}
         charactersArray={charactersArray}
+        handleFoundCharacter={handleFoundCharacter}
         windowWidth={windowWidth}
         windowHeight={windowHeight}
         characters={charactersArray}
