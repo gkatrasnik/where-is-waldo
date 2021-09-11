@@ -14,9 +14,7 @@ function Picture() {
     let y = e.pageY;
     console.log(x, y);
     setCoordinates([x, y]);
-    if (!showFoundCharacter) {
-      addFoundSquare(x, y);
-    }
+
     setShowFoundCharacter(!showFoundCharacter);
   };
 
@@ -37,7 +35,7 @@ function Picture() {
       height: "50px",
       border: "4px solid red",
     };
-    const newSquare = <div style={squareStyle}></div>;
+    const newSquare = <div style={squareStyle} key={x + y}></div>;
     if (foundIsCorrect()) {
       setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
     }
@@ -50,6 +48,8 @@ function Picture() {
         <CharactersDropdown
           coordinates={coordinates}
           closeFoundCharacter={closeFoundCharacter}
+          foundIsCorrect={foundIsCorrect}
+          addFoundSquare={addFoundSquare}
         />
       )}
 
