@@ -5,17 +5,22 @@ import "../styles/charactersDropdown.css";
 const CharactersDropdown = (props) => {
   const style = {
     position: "absolute",
-    left: `${props.coordinates[0] - 55}px`,
-    top: `${props.coordinates[1]}px`,
+    left: `${props.clickedCoordinates[0] - 55}px`,
+    top: `${props.clickedCoordinates[1]}px`,
     zIndex: 1,
   };
 
   const handleChoose = (item) => {
     if (!props.showFoundCharacter) {
-      console.log(item);
+      //if choosen character is found...
       if (props.foundIsCorrect(item)) {
-        props.addFoundSquare(props.coordinates[0], props.coordinates[1]);
-        props.handleFoundCharacter(item);
+        props.addFoundSquare(
+          props.clickedCoordinates[0],
+          props.clickedCoordinates[1]
+        );
+        props.handleFoundCharacter(item, props.checkGameOver);
+      } else {
+        alert("Nope, keep looking!");
       }
     }
     props.closeFoundCharacter();

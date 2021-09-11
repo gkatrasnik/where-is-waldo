@@ -12,7 +12,7 @@ import Leaderboard from "./components/Leaderboard";
 function App() {
   const [showStartModal, setShowStartModal] = useState(true);
   const [showGameOverModal, setShowGameOverModal] = useState(false);
-  const [charactersArray, setCharactersArray] = useState([]);
+  const [charactersArray, setCharactersArray] = useState(["dummy"]);
   const [resultsData, setResultsData] = useState([]);
   const [player, setPlayer] = useState(null);
   const [windowWidth, setWindowWidth] = useState(null);
@@ -22,6 +22,12 @@ function App() {
     setCharactersArray(characters);
     console.log("loaded original characters");
   }, []);
+
+  useEffect(() => {
+    if (charactersArray) {
+      checkGameOver();
+    }
+  }, [charactersArray]);
 
   const setWindowSize = () => {
     setWindowWidth(document.body.clientWidth);
@@ -58,6 +64,13 @@ function App() {
     console.log(newArray);
   };
 
+  const checkGameOver = () => {
+    console.log("check game over", charactersArray);
+    if (charactersArray.length === 0) {
+      setShowGameOverModal(true);
+    }
+  };
+
   const picStyle = {
     overflow: "hidden",
   };
@@ -85,6 +98,7 @@ function App() {
         style={picStyle}
         charactersArray={charactersArray}
         handleFoundCharacter={handleFoundCharacter}
+        checkGameOver={checkGameOver}
         windowWidth={windowWidth}
         windowHeight={windowHeight}
         characters={charactersArray}

@@ -6,14 +6,14 @@ import "../styles/picture.css";
 
 function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
-  const [coordinates, setCoordinates] = useState([0, 0]);
+  const [clickedCoordinates, setClickedCoordinates] = useState([0, 0]);
   const [foundSquares, setFoundSquares] = useState([]);
 
   const handleClick = (e) => {
     let x = e.pageX;
     let y = e.pageY;
     console.log(x, y);
-    setCoordinates([x, y]);
+    setClickedCoordinates([x, y]);
 
     setShowFoundCharacter(!showFoundCharacter);
   };
@@ -24,15 +24,16 @@ function Picture(props) {
 
   const foundIsCorrect = (item) => {
     if (
-      coordinates[0] < item.position[0] * props.windowWidth + 30 &&
-      coordinates[0] > item.position[0] * props.windowWidth - 30 &&
-      coordinates[1] < item.position[1] * props.windowHeight + 30 &&
-      coordinates[1] > item.position[1] * props.windowHeight - 30
+      clickedCoordinates[0] < item.position[0] * props.windowWidth + 30 &&
+      clickedCoordinates[0] > item.position[0] * props.windowWidth - 30 &&
+      clickedCoordinates[1] < item.position[1] * props.windowHeight + 30 &&
+      clickedCoordinates[1] > item.position[1] * props.windowHeight - 30
     ) {
       console.log("FOUND------------------");
       return true;
     }
     console.log("not found");
+
     return false;
   };
 
@@ -45,7 +46,7 @@ function Picture(props) {
       height: 60,
       border: "4px solid red",
     };
-    const newSquare = <div style={squareStyle}></div>;
+    const newSquare = <div style={squareStyle} key={x * y}></div>;
 
     setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
   };
@@ -60,12 +61,13 @@ function Picture(props) {
       />
       {showFoundCharacter && (
         <CharactersDropdown
-          coordinates={coordinates}
+          clickedCoordinates={clickedCoordinates}
           charactersArray={props.charactersArray}
           handleFoundCharacter={props.handleFoundCharacter}
           closeFoundCharacter={closeFoundCharacter}
           foundIsCorrect={foundIsCorrect}
           addFoundSquare={addFoundSquare}
+          checkGameOver={props.checkGameOver}
         />
       )}
 
