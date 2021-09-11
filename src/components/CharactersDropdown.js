@@ -21,15 +21,13 @@ const CharactersDropdown = (props) => {
       <ListGroup.Item action variant="dark" onClick={props.closeFoundCharacter}>
         Close
       </ListGroup.Item>
-      <ListGroup.Item action onClick={handleChoose}>
-        Character 1
-      </ListGroup.Item>
-      <ListGroup.Item action onClick={handleChoose}>
-        Character 2
-      </ListGroup.Item>
-      <ListGroup.Item action onClick={handleChoose}>
-        Character 3
-      </ListGroup.Item>
+      {props.charactersArray.map((item, i) => {
+        return (
+          <ListGroup.Item key={i} action onClick={handleChoose}>
+            {item.name}
+          </ListGroup.Item>
+        );
+      })}
     </ListGroup>
   );
 };

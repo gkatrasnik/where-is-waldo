@@ -9,6 +9,15 @@ function Picture(props) {
   const [coordinates, setCoordinates] = useState([0, 0]);
   const [foundSquares, setFoundSquares] = useState([]);
 
+  useEffect(() => {
+    props.characters.map((item) => {
+      addFoundSquare(
+        item.position[0] * props.windowWidth,
+        item.position[1] * props.windowHeight
+      );
+    });
+  }, [props.characters, props.windowHeight, props.windowWidth]);
+
   const handleClick = (e) => {
     let x = e.pageX;
     let y = e.pageY;
@@ -27,12 +36,14 @@ function Picture(props) {
   };
 
   const addFoundSquare = (x, y) => {
+    //const x0 = x - 0.03 * props.windowWidth;
+    //const y0 = y - 0.08 * props.windowHeight + 56;
     const squareStyle = {
       position: "absolute",
-      left: `${x - 25}px`,
-      top: `${y - 25}px`,
-      width: "50px",
-      height: "50px",
+      left: `${x - 30}px`,
+      top: `${y - 30}px`,
+      width: 60,
+      height: 60,
       border: "4px solid red",
     };
     const newSquare = <div style={squareStyle} key={x + y}></div>;
@@ -52,6 +63,7 @@ function Picture(props) {
       {showFoundCharacter && (
         <CharactersDropdown
           coordinates={coordinates}
+          charactersArray={props.charactersArray}
           closeFoundCharacter={closeFoundCharacter}
           foundIsCorrect={foundIsCorrect}
           addFoundSquare={addFoundSquare}

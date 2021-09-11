@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Picture from "./components/Picture";
 import Topbar from "./components/Topbar";
-
+import { characters } from "./components/Characters";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import StartModal from "./components/StartModal";
@@ -12,10 +12,15 @@ import Leaderboard from "./components/Leaderboard";
 function App() {
   const [showStartModal, setShowStartModal] = useState(true);
   const [showGameOverModal, setShowGameOverModal] = useState(false);
+  const [charactersArray, setCharactersArray] = useState([]);
   const [resultsData, setResultsData] = useState([]);
   const [player, setPlayer] = useState(null);
   const [windowWidth, setWindowWidth] = useState(null);
   const [windowHeight, setWindowHeight] = useState(null);
+
+  useEffect(() => {
+    setCharactersArray(characters);
+  }, []);
 
   const setWindowSize = () => {
     setWindowWidth(document.body.clientWidth);
@@ -63,11 +68,19 @@ function App() {
         resultsData={resultsData}
       />
       <Topbar
+        charactersArray={charactersArray}
         toggleShowStartModal={toggleShowStartModal}
         toggleShowGameOverModal={toggleShowGameOverModal}
         player={player}
       />
-      <Picture style={picStyle} setWindowSize={setWindowSize} />
+      <Picture
+        style={picStyle}
+        charactersArray={charactersArray}
+        windowWidth={windowWidth}
+        windowHeight={windowHeight}
+        characters={charactersArray}
+        setWindowSize={setWindowSize}
+      />
     </>
   );
 }

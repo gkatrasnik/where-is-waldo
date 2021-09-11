@@ -8,10 +8,11 @@ function Topbar(props) {
       <Container>
         <Navbar.Brand href="#home">Find Me!</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link onClick={props.toggleShowGameOverModal}>Char1</Nav.Link>
-          <Nav.Link>Char2</Nav.Link>
-          <Nav.Link>Char3</Nav.Link>
-          <Nav.Link disabled>Time</Nav.Link>
+          {props.charactersArray.map((item, i) => {
+            return <Nav.Link key={i}>{item.name}</Nav.Link>;
+          })}
+
+          <Nav.Link disabled> Time: 00:00</Nav.Link>
         </Nav>
         <Navbar.Text>{props.player}</Navbar.Text>
       </Container>
