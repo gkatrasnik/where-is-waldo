@@ -1,13 +1,17 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Image } from "react-bootstrap";
 import "../styles/charactersDropdown.css";
 
 const CharactersDropdown = (props) => {
   const style = {
     position: "absolute",
-    left: `${props.clickedCoordinates[0] - 55}px`,
-    top: `${props.clickedCoordinates[1]}px`,
+    left: `${props.clickedCoordinates[0] - 90}px`,
+    top: `${props.clickedCoordinates[1] - 21}px`,
     zIndex: 1,
+  };
+
+  const iconStyle = {
+    height: "25px",
   };
 
   const handleChoose = (item) => {
@@ -33,6 +37,10 @@ const CharactersDropdown = (props) => {
       {props.charactersArray.map((item, i) => {
         return (
           <ListGroup.Item key={i} action onClick={() => handleChoose(item)}>
+            <Image
+              style={iconStyle}
+              src={process.env.PUBLIC_URL + item.url}
+            ></Image>
             {item.name}
           </ListGroup.Item>
         );

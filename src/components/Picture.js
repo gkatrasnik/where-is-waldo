@@ -12,7 +12,7 @@ function Picture(props) {
   const handleClick = (e) => {
     let x = e.pageX;
     let y = e.pageY;
-    console.log(x, y);
+    console.log("handle click", x, y);
     setClickedCoordinates([x, y]);
 
     setShowFoundCharacter(!showFoundCharacter);
@@ -29,14 +29,13 @@ function Picture(props) {
       clickedCoordinates[1] < item.position[1] * props.windowHeight + 30 &&
       clickedCoordinates[1] > item.position[1] * props.windowHeight - 30
     ) {
-      console.log("FOUND------------------");
       return true;
     }
-    console.log("not found");
 
     return false;
   };
 
+  //make square size dinamic
   const addFoundSquare = (x, y) => {
     const squareStyle = {
       position: "absolute",

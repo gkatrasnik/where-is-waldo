@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     setCharactersArray(characters);
-    console.log("loaded original characters");
   }, []);
 
   useEffect(() => {
@@ -32,7 +31,11 @@ function App() {
   const setWindowSize = () => {
     setWindowWidth(document.body.clientWidth);
     setWindowHeight(document.body.clientHeight);
-    console.log("size", document.body.clientWidth, document.body.clientHeight);
+    console.log(
+      " body size",
+      document.body.clientWidth,
+      document.body.clientHeight
+    );
   };
 
   const getResultsData = async () => {

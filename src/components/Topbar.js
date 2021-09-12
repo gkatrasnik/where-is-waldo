@@ -26,7 +26,9 @@ function Topbar(props) {
             );
           })}
 
-          <Nav.Link disabled> Time: 00:00</Nav.Link>
+          <Nav.Link disabled>
+            <h5>Time: 00:00</h5>
+          </Nav.Link>
         </Nav>
         <Navbar.Text>{props.player}</Navbar.Text>
       </Container>

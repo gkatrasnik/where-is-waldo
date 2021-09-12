@@ -3,7 +3,7 @@ export const characters = [
   {
     id: 0,
     name: "Mr.Peanutbuter",
-    position: [0.911, 0.224],
+    position: [0.911, 0.227],
     url: "/images/mrpeanutbutter.png",
   },
   {
@@ -14,7 +14,7 @@ export const characters = [
   },
   {
     id: 2,
-    name: "Bugs Bunny",
+    name: "Bugs Bunny King",
     position: [0.43, 0.462],
     url: "/images/bugs_bunny.png",
   },
