@@ -34,17 +34,18 @@ const CharactersDropdown = (props) => {
       <ListGroup.Item action variant="dark" onClick={props.closeFoundCharacter}>
         Close
       </ListGroup.Item>
-      {props.charactersArray.map((item, i) => {
-        return (
-          <ListGroup.Item key={i} action onClick={() => handleChoose(item)}>
-            <Image
-              style={iconStyle}
-              src={process.env.PUBLIC_URL + item.url}
-            ></Image>
-            {item.name}
-          </ListGroup.Item>
-        );
-      })}
+      {props.charactersArray &&
+        props.charactersArray.map((item, i) => {
+          return (
+            <ListGroup.Item key={i} action onClick={() => handleChoose(item)}>
+              <Image
+                style={iconStyle}
+                src={process.env.PUBLIC_URL + item.url}
+              ></Image>
+              {item.name}
+            </ListGroup.Item>
+          );
+        })}
     </ListGroup>
   );
 };

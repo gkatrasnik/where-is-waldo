@@ -4,24 +4,24 @@ import { Modal, ListGroup, Button } from "react-bootstrap";
 
 const Leaderboard = (props) => {
   return (
-    <Modal
-      show={props.showGameOverModal}
-      onHide={props.toggleShowGameOverModal}
-    >
+    <Modal show={props.showGameOverModal} backdrop={"static"} keyboard={false}>
       <Modal.Header closeButton>
         <Modal.Title>Leaderboard</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
         <ListGroup>
-          <ListGroup.Item>Your time: {msToTime(props.gameTime)}</ListGroup.Item>
+          <ListGroup.Item>
+            <strong>Your time: {msToTime(props.gameTime)}</strong>
+          </ListGroup.Item>
         </ListGroup>
+        <br />
         <ListGroup>
           {props.resultsData.map((item, i) => {
             return (
               <ListGroup.Item key={i}>
-                {item.playerName}, time:
-                {msToTime(item.time)}s
+                {i + 1}
+                {"."} {item.playerName}, time:
+                {msToTime(item.time)}
               </ListGroup.Item>
             );
           })}
@@ -29,11 +29,13 @@ const Leaderboard = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Button
-          type="submit"
           variant="primary"
-          onClick={props.toggleShowGameOverModal}
+          onClick={() => {
+            props.toggleShowGameOverModal();
+            props.playAgain();
+          }}
         >
-          Close
+          Play Again
         </Button>
       </Modal.Footer>
     </Modal>

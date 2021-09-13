@@ -7,7 +7,6 @@ import "../styles/picture.css";
 function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
   const [clickedCoordinates, setClickedCoordinates] = useState([0, 0]);
-  const [foundSquares, setFoundSquares] = useState([]);
 
   const handleClick = (e) => {
     let x = e.pageX;
@@ -37,6 +36,7 @@ function Picture(props) {
 
   //make square size dinamic
   const addFoundSquare = (x, y) => {
+    let array = props.foundSquares;
     const squareStyle = {
       position: "absolute",
       left: `${x - 30}px`,
@@ -47,7 +47,7 @@ function Picture(props) {
     };
     const newSquare = <div style={squareStyle} key={x * y}></div>;
 
-    setFoundSquares((foundSquares) => [...foundSquares, newSquare]);
+    props.setFoundSquares((array) => [array, newSquare]);
   };
 
   return (
@@ -70,7 +70,7 @@ function Picture(props) {
         />
       )}
 
-      {foundSquares}
+      {props.foundSquares}
     </>
   );
 }
