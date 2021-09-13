@@ -24,7 +24,7 @@ const CharactersDropdown = (props) => {
         );
         props.handleFoundCharacter(item, props.checkGameOver);
       } else {
-        alert("Nope, keep looking!");
+        props.toggleShowWrongFind();
       }
     }
     props.closeFoundCharacter();

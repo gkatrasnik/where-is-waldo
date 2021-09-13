@@ -3,9 +3,11 @@ import CharactersDropdown from "./CharactersDropdown";
 import picture from "../assets/picture.jpg";
 import { Image, Button } from "react-bootstrap";
 import "../styles/picture.css";
+import WrongFind from "./WrongFind";
 
 function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
+  const [showWrongFind, setShowWrongFind] = useState(false);
   const [clickedCoordinates, setClickedCoordinates] = useState([0, 0]);
 
   const handleClick = (e) => {
@@ -15,6 +17,10 @@ function Picture(props) {
     setClickedCoordinates([x, y]);
 
     setShowFoundCharacter(!showFoundCharacter);
+  };
+
+  const toggleShowWrongFind = () => {
+    setShowWrongFind(!showWrongFind);
   };
 
   const closeFoundCharacter = () => {
@@ -66,10 +72,14 @@ function Picture(props) {
           closeFoundCharacter={closeFoundCharacter}
           foundIsCorrect={foundIsCorrect}
           addFoundSquare={addFoundSquare}
+          toggleShowWrongFind={toggleShowWrongFind}
           checkGameOver={props.checkGameOver}
         />
       )}
-
+      <WrongFind
+        showWrongFind={showWrongFind}
+        toggleShowWrongFind={toggleShowWrongFind}
+      />
       {props.foundSquares}
     </>
   );
