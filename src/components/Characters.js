@@ -6,7 +6,7 @@ export const characters = [
     position: [0.911, 0.227],
     url: "/images/mrpeanutbutter.png",
   },
-  {
+  /*{
     id: 1,
     name: "Ned Flanders",
     position: [0.176, 0.366],
@@ -18,7 +18,7 @@ export const characters = [
     position: [0.43, 0.462],
     url: "/images/bugs_bunny.png",
   },
-  /*
+  
   {
     id: 3,
     name: "Sonic the Hedgehog",

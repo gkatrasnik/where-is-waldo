@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import StartModal from "./components/StartModal";
 import { db } from "./components/Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore";
 import Leaderboard from "./components/Leaderboard";
 
 function App() {
@@ -17,6 +17,8 @@ function App() {
   const [player, setPlayer] = useState(null);
   const [windowWidth, setWindowWidth] = useState(null);
   const [windowHeight, setWindowHeight] = useState(null);
+  const [gameStartTime, setGameStartTime] = useState(null);
+  const [gameTime, setGameTime] = useState(null);
 
   useEffect(() => {
     setCharactersArray(characters);
@@ -36,6 +38,27 @@ function App() {
       document.body.clientWidth,
       document.body.clientHeight
     );
+  };
+
+  const startGame = () => {
+    let gameStartTime = Timestamp.now().toMillis();
+    setGameStartTime(gameStartTime);
+    console.log(gameStartTime);
+  };
+
+  const endGame = () => {
+    let gameEndTime = Timestamp.now().toMillis();
+    let gameTime = gameEndTime - gameStartTime;
+    console.log("gametime", gameTime);
+    setGameTime(gameTime);
+    postResult(player, gameTime);
+  };
+
+  const postResult = async (player, time) => {
+    const docRef = await addDoc(collection(db, "results"), {
+      playerName: player,
+      time: time,
+    });
   };
 
   const getResultsData = async () => {
@@ -64,12 +87,12 @@ function App() {
     const index = item.id;
     let newArray = charactersArray.filter((item) => item.id !== index);
     setCharactersArray(newArray);
-    console.log(newArray);
   };
 
   const checkGameOver = () => {
-    console.log("check game over", charactersArray);
     if (charactersArray.length === 0) {
+      endGame();
+      getResultsData();
       setShowGameOverModal(true);
     }
   };
@@ -81,17 +104,20 @@ function App() {
   return (
     <>
       <StartModal
-        getResultsData={getResultsData}
+        startGame={startGame}
         showStartModal={showStartModal}
         toggleShowStartModal={toggleShowStartModal}
         handleStartModalSubmit={handleStartModalSubmit}
       />
       <Leaderboard
+        gameTime={gameTime}
         showGameOverModal={showGameOverModal}
-        toggleShowGameOverModal={toggleShowGameOverModal}
         resultsData={resultsData}
+        toggleShowGameOverModal={toggleShowGameOverModal}
       />
       <Topbar
+        gameStartTime={gameStartTime}
+        gameTime={gameTime}
         charactersArray={charactersArray}
         toggleShowStartModal={toggleShowStartModal}
         toggleShowGameOverModal={toggleShowGameOverModal}

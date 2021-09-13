@@ -1,4 +1,5 @@
 import { React } from "react";
+import { msToTime } from "./helpers";
 import { Modal, ListGroup, Button } from "react-bootstrap";
 
 const Leaderboard = (props) => {
@@ -13,11 +14,14 @@ const Leaderboard = (props) => {
 
       <Modal.Body>
         <ListGroup>
+          <ListGroup.Item>Your time: {msToTime(props.gameTime)}</ListGroup.Item>
+        </ListGroup>
+        <ListGroup>
           {props.resultsData.map((item, i) => {
             return (
               <ListGroup.Item key={i}>
                 {item.playerName}, time:
-                {item.time}s
+                {msToTime(item.time)}s
               </ListGroup.Item>
             );
           })}

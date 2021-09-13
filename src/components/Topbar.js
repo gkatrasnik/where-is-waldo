@@ -1,4 +1,5 @@
 import React from "react";
+import Timer from "./Timer";
 import { Navbar, Container, Nav, Image } from "react-bootstrap";
 import "../styles/picture.css";
 
@@ -27,7 +28,12 @@ function Topbar(props) {
           })}
 
           <Nav.Link disabled>
-            <h5>Time: 00:00</h5>
+            <Timer
+              charactersArray={props.charractersArray}
+              gameStartTime={props.gameStartTime}
+              gameTime={props.gameTime}
+              player={props.player}
+            ></Timer>
           </Nav.Link>
         </Nav>
         <Navbar.Text>{props.player}</Navbar.Text>

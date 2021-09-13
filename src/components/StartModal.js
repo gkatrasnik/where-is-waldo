@@ -16,7 +16,7 @@ const StartModal = (props) => {
         onSubmit={(e) => {
           props.toggleShowStartModal();
           props.handleStartModalSubmit(e, playerName);
-          props.getResultsData();
+          props.startGame();
         }}
       >
         <Modal.Body>
