@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { formatTime } from "./helpers";
 import { Navbar } from "react-bootstrap";
 
 const Timer = (props) => {
@@ -33,14 +34,6 @@ const Timer = (props) => {
     setIsStopped(false);
   };
 
-  const formatTime = (timer) => {
-    const getSeconds = `0${timer % 60}`.slice(-2);
-    const minutes = `${Math.floor(timer / 60)}`;
-    const getMinutes = `0${minutes % 60}`.slice(-2);
-    const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
-
-    return ` ${getMinutes} : ${getSeconds}`;
-  };
   return (
     <Navbar.Text>
       <h4 style={{ marginBottom: 0, paddingRight: 20 }}>{formatTime(timer)}</h4>

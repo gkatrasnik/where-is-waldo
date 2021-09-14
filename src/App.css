@@ -18,10 +18,10 @@ html {
 
 @media only screen and (orientation: landscape) {
   html {
-    overflow-y: scroll;
   }
 
   body {
+    overflow-y: scroll;
   }
 
   .picture {

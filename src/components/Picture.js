@@ -13,10 +13,11 @@ function Picture(props) {
   const [dropdownY, setDropdownY] = useState(-140);
 
   const getDropdownY = (y) => {
-    if (y < 150) {
-      return 80;
+    console.log(y, props.windowHeight);
+    if (y > props.windowHeight - 260) {
+      return -165;
     } else {
-      return -140;
+      return 105;
     }
   };
 
@@ -24,9 +25,11 @@ function Picture(props) {
     let x = e.pageX;
     // -100(topbar), top left picture corner is 0.0
     let y = e.pageY - 100;
+    let clientY = y + 100;
+
     console.log("handle click", x, y);
     setClickedCoordinates([x, y]);
-    setDropdownY(getDropdownY(y));
+    setDropdownY(getDropdownY(clientY));
 
     setShowFoundCharacter(!showFoundCharacter);
   };
@@ -43,8 +46,10 @@ function Picture(props) {
     if (
       clickedCoordinates[0] < item.position[0] * props.windowWidth + 30 &&
       clickedCoordinates[0] > item.position[0] * props.windowWidth - 30 &&
-      clickedCoordinates[1] < item.position[1] * props.windowHeight + 30 &&
-      clickedCoordinates[1] > item.position[1] * props.windowHeight - 30
+      //-100 topbar height
+      clickedCoordinates[1] <
+        item.position[1] * (props.windowHeight - 100) + 30 &&
+      clickedCoordinates[1] > item.position[1] * (props.windowHeight - 100) - 30
     ) {
       return true;
     }
