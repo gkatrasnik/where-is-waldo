@@ -4,7 +4,13 @@ import { Modal, ListGroup, Button } from "react-bootstrap";
 
 const Leaderboard = (props) => {
   return (
-    <Modal show={props.showGameOverModal} backdrop={"static"} keyboard={false}>
+    <Modal
+      show={props.showGameOverModal}
+      size="sm"
+      backdrop={"static"}
+      keyboard={false}
+      centered
+    >
       <Modal.Header>
         <Modal.Title>Leaderboard</Modal.Title>
       </Modal.Header>

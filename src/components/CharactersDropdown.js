@@ -1,13 +1,14 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { ListGroup, Image } from "react-bootstrap";
-import "../App.css";
+import "../index.css";
 
 const CharactersDropdown = (props) => {
   const style = {
     position: "absolute",
-    left: `${props.clickedCoordinates[0]}px`,
-    top: `${props.clickedCoordinates[1]}px`,
-    zIndex: 1,
+    left: `${props.clickedCoordinates[0] - 81}px`,
+    top: `${props.clickedCoordinates[1] + props.dropdownY}px`,
+    zIndex: 1031,
+    width: "170px",
   };
 
   const iconStyle = {
@@ -20,7 +21,7 @@ const CharactersDropdown = (props) => {
       if (props.foundIsCorrect(item)) {
         props.addFoundSquare(
           props.clickedCoordinates[0],
-          props.clickedCoordinates[1] + 100 // + 100px topbar height
+          props.clickedCoordinates[1] + 100 // +100px for topbar height
         );
         props.handleFoundCharacter(item, props.checkGameOver);
       } else {
@@ -31,9 +32,6 @@ const CharactersDropdown = (props) => {
   };
   return (
     <ListGroup style={style} className="charactersDropdown">
-      <ListGroup.Item action variant="dark" onClick={props.closeFoundCharacter}>
-        Close
-      </ListGroup.Item>
       {props.charactersArray &&
         props.charactersArray.map((item, i) => {
           return (
@@ -46,6 +44,9 @@ const CharactersDropdown = (props) => {
             </ListGroup.Item>
           );
         })}
+      <ListGroup.Item action variant="dark" onClick={props.closeFoundCharacter}>
+        Close
+      </ListGroup.Item>
     </ListGroup>
   );
 };

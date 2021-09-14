@@ -10,6 +10,15 @@ function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
   const [showWrongFind, setShowWrongFind] = useState(false);
   const [clickedCoordinates, setClickedCoordinates] = useState([0, 0]);
+  const [dropdownY, setDropdownY] = useState(-140);
+
+  const getDropdownY = (y) => {
+    if (y < 150) {
+      return 80;
+    } else {
+      return -140;
+    }
+  };
 
   const handleClick = (e) => {
     let x = e.pageX;
@@ -17,6 +26,7 @@ function Picture(props) {
     let y = e.pageY - 100;
     console.log("handle click", x, y);
     setClickedCoordinates([x, y]);
+    setDropdownY(getDropdownY(y));
 
     setShowFoundCharacter(!showFoundCharacter);
   };
@@ -68,6 +78,7 @@ function Picture(props) {
       />
       {showFoundCharacter && (
         <CharactersDropdown
+          dropdownY={dropdownY}
           clickedCoordinates={clickedCoordinates}
           charactersArray={props.charactersArray}
           handleFoundCharacter={props.handleFoundCharacter}

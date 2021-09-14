@@ -5,10 +5,16 @@ const StartModal = (props) => {
   const [playerName, setPlayerName] = useState("");
 
   return (
-    <Modal show={props.showStartModal} backdrop={"static"} keyboard={false}>
+    <Modal
+      show={props.showStartModal}
+      size="sm"
+      backdrop={"static"}
+      keyboard={false}
+      centered
+    >
       <Modal.Header>
         <Modal.Title>
-          Welcome to <strong>Find Me!</strong> game
+          Welcome to <strong>Find Me!</strong>
         </Modal.Title>
       </Modal.Header>
 

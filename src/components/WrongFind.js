@@ -3,7 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 
 const WrongFind = (props) => {
   return (
-    <Modal show={props.showWrongFind} onHide={props.toggleShowWrongFind}>
+    <Modal
+      show={props.showWrongFind}
+      size="sm"
+      onHide={props.toggleShowWrongFind}
+      centered
+    >
       <Modal.Header closeButton>
         <Modal.Title>Wrong!</Modal.Title>
       </Modal.Header>

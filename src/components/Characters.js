@@ -21,7 +21,7 @@ export const characters = [
   {
     id: 7,
     name: "Rick Sanchez",
-    position: [0.687, 0.828],
+    position: [0.687, 0.782],
     url: "/images/rick_sanchez.png",
   },
   {
