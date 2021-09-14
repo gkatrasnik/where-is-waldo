@@ -10,9 +10,9 @@ const WrongFind = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>Wrong!</Modal.Title>
+        <Modal.Title>Nope!</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Continue searching...</Modal.Body>
+      <Modal.Body>Keep looking...</Modal.Body>
       <Modal.Footer>
         <Button variant="primary" onClick={props.toggleShowWrongFind}>
           Continue
