@@ -17,9 +17,6 @@ html {
 }
 
 @media only screen and (orientation: landscape) {
-  html {
-  }
-
   body {
     overflow-y: scroll;
   }

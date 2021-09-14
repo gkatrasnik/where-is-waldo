@@ -1,12 +1,17 @@
-export const msToTime = (ms) => {
-  let seconds = (ms / 1000).toFixed(3);
-  let minutes = (ms / (1000 * 60)).toFixed(1);
-  let hours = (ms / (1000 * 60 * 60)).toFixed(1);
-  let days = (ms / (1000 * 60 * 60 * 24)).toFixed(1);
-  if (seconds < 60) return seconds + " s";
-  else if (minutes < 60) return minutes + " min";
-  else if (hours < 24) return hours + " h";
-  else return days + " Days";
+export const msToTime = (s) => {
+  // Pad to 2 or 3 digits, default is 2
+  function pad(n, z) {
+    z = z || 2;
+    return ("00" + n).slice(-z);
+  }
+
+  var ms = s % 1000;
+  s = (s - ms) / 1000;
+  var secs = s % 60;
+  s = (s - secs) / 60;
+  var mins = s % 60;
+
+  return pad(mins) + ":" + pad(secs) + "." + pad(ms, 3);
 };
 
 export const formatTime = (timer) => {
