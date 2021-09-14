@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import CharactersDropdown from "./CharactersDropdown";
 import picture from "../assets/picture.jpg";
 import { Image, Button } from "react-bootstrap";
-import "../styles/picture.css";
+import "../index.css";
 import WrongFind from "./WrongFind";
 
 function Picture(props) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { ListGroup, Image } from "react-bootstrap";
-import "../styles/charactersDropdown.css";
+import "../index.css";
 
 const CharactersDropdown = (props) => {
   const style = {

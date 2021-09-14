@@ -1,11 +1,11 @@
 import React from "react";
 import Timer from "./Timer";
 import { Navbar, Container, Nav, Image } from "react-bootstrap";
-import "../styles/picture.css";
 
 function Topbar(props) {
   const topbarStyle = {
     height: "100px",
+    width: "100%",
   };
 
   const imgStyle = {
