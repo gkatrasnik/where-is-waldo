@@ -1,9 +1,10 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import CharactersDropdown from "./CharactersDropdown";
 import picture from "../assets/picture.jpg";
-import { Image, Button } from "react-bootstrap";
-import "../index.css";
+import { Image } from "react-bootstrap";
+
 import WrongFind from "./WrongFind";
+import "../App.css";
 
 function Picture(props) {
   const [showFoundCharacter, setShowFoundCharacter] = useState(false);
@@ -12,7 +13,8 @@ function Picture(props) {
 
   const handleClick = (e) => {
     let x = e.pageX;
-    let y = e.pageY;
+    // -100(topbar), top left picture corner is 0.0
+    let y = e.pageY - 100;
     console.log("handle click", x, y);
     setClickedCoordinates([x, y]);
 

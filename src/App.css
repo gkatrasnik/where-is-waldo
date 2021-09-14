@@ -1,0 +1,40 @@
+body {
+  width: fit-content;
+}
+
+html {
+  height: 100vh;
+  background-color: #212529;
+}
+
+.picture {
+  height: calc(100vh - 100px);
+  width: auto;
+}
+
+.title {
+  display: none;
+}
+
+@media only screen and (orientation: landscape) {
+  html {
+    overflow-y: scroll;
+  }
+
+  body {
+  }
+
+  .picture {
+    height: max-content;
+    width: 100%;
+    cursor: crosshair;
+    overflow-y: hidden;
+  }
+  .title {
+    display: block;
+  }
+}
+
+.charactersDropdown {
+  cursor: pointer;
+}

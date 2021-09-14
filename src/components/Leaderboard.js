@@ -5,7 +5,7 @@ import { Modal, ListGroup, Button } from "react-bootstrap";
 const Leaderboard = (props) => {
   return (
     <Modal show={props.showGameOverModal} backdrop={"static"} keyboard={false}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Leaderboard</Modal.Title>
       </Modal.Header>
       <Modal.Body>

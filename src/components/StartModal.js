@@ -6,7 +6,7 @@ const StartModal = (props) => {
 
   return (
     <Modal show={props.showStartModal} backdrop={"static"} keyboard={false}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>
           Welcome to <strong>Find Me!</strong> game
         </Modal.Title>

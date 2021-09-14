@@ -39,10 +39,6 @@ function App() {
     }
   }, [charactersArray]);
 
-  const picStyle = {
-    overflow: "hidden",
-  };
-
   const setWindowSize = () => {
     setWindowWidth(document.body.clientWidth);
     setWindowHeight(document.body.clientHeight);
@@ -146,7 +142,6 @@ function App() {
         player={player}
       />
       <Picture
-        style={picStyle}
         charactersArray={charactersArray}
         windowWidth={windowWidth}
         windowHeight={windowHeight}

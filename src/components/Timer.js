@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Nav, Navbar } from "react-bootstrap";
-import { msToTime } from "./helpers";
+import { Navbar } from "react-bootstrap";
 
 const Timer = (props) => {
   const [timer, setTimer] = useState(0);
@@ -40,11 +39,11 @@ const Timer = (props) => {
     const getMinutes = `0${minutes % 60}`.slice(-2);
     const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
 
-    return `${getHours} : ${getMinutes} : ${getSeconds}`;
+    return ` ${getMinutes} : ${getSeconds}`;
   };
   return (
     <Navbar.Text>
-      <h2 style={{ marginBottom: 0, paddingRight: 20 }}>{formatTime(timer)}</h2>
+      <h4 style={{ marginBottom: 0, paddingRight: 20 }}>{formatTime(timer)}</h4>
     </Navbar.Text>
   );
 };

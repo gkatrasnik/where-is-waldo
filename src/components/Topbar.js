@@ -1,6 +1,7 @@
 import React from "react";
 import Timer from "./Timer";
 import { Navbar, Container, Nav, Image } from "react-bootstrap";
+import "../App.css";
 
 function Topbar(props) {
   const topbarStyle = {
@@ -9,12 +10,12 @@ function Topbar(props) {
   };
 
   const imgStyle = {
-    height: "50px",
+    height: "2.5em",
   };
   return (
     <Navbar style={topbarStyle} bg="dark" variant="dark" fixed="top">
       <Container>
-        <Navbar.Brand href="#home">Find Me!</Navbar.Brand>
+        <Navbar.Brand className="title">Find Me!</Navbar.Brand>
         <Nav className="me-auto">
           {props.charactersArray &&
             props.charactersArray.map((item, i) => {
@@ -35,8 +36,6 @@ function Topbar(props) {
           gameTime={props.gameTime}
           player={props.player}
         ></Timer>
-
-        <Navbar.Text>{props.player}</Navbar.Text>
       </Container>
     </Navbar>
   );
