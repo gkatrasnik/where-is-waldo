@@ -5,25 +5,24 @@ import { Navbar } from "react-bootstrap";
 const Timer = (props) => {
   const [timer, setTimer] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [isStopped, setIsStopped] = useState(false);
+
   const countRef = useRef(null);
 
   useEffect(() => {
-    console.log(props.player, props.gameStartTime);
     if (props.player && props.gameStartTime) {
       handleStart();
     }
-  }, [props.player, props.gameStartTIme]);
+  }, [props.player, props.gameStartTime]);
 
   useEffect(() => {
-    if (props.gameTime) {
+    if (!props.gameTime) {
       handlePause();
     }
   }, [props.gameTime]);
 
   const handleStart = () => {
     setIsActive(true);
-    setIsStopped(true);
+
     countRef.current = setInterval(() => {
       setTimer((timer) => timer + 1);
     }, 1000);
@@ -31,7 +30,8 @@ const Timer = (props) => {
 
   const handlePause = () => {
     clearInterval(countRef.current);
-    setIsStopped(false);
+    setTimer(0);
+    setIsActive(false);
   };
 
   return (

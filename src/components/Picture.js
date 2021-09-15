@@ -13,7 +13,6 @@ function Picture(props) {
   const [dropdownY, setDropdownY] = useState(-140);
 
   const getDropdownY = (y) => {
-    console.log(y, props.windowHeight);
     if (y > props.windowHeight - 260) {
       return -165;
     } else {
@@ -27,7 +26,6 @@ function Picture(props) {
     let y = e.pageY - 100;
     let clientY = y + 100;
 
-    console.log("handle click", x, y);
     setClickedCoordinates([x, y]);
     setDropdownY(getDropdownY(clientY));
 

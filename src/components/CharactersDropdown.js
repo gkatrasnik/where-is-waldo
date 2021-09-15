@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import { ListGroup, Image } from "react-bootstrap";
 import "../index.css";
 

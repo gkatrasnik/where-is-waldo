@@ -6,6 +6,7 @@ export const characters = [
     position: [0.784, 0.513],
     url: "/images/jake_the_dog.png",
   },
+
   {
     id: 0,
     name: "Mr.Peanutbuter",
@@ -31,6 +32,7 @@ export const characters = [
     url: "/images/waldo.png",
   },
   /*
+ 
   {
     id: 6,
     name: "Fred Flintstone",

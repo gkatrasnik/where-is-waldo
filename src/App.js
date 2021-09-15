@@ -42,23 +42,16 @@ function App() {
   const setWindowSize = () => {
     setWindowWidth(document.body.clientWidth);
     setWindowHeight(document.body.clientHeight);
-    console.log(
-      " body size",
-      document.body.clientWidth,
-      document.body.clientHeight
-    );
   };
 
   const startGame = () => {
     let gameStartTime = Timestamp.now().toMillis();
     setGameStartTime(gameStartTime);
-    console.log(gameStartTime);
   };
 
   const endGame = () => {
     let gameEndTime = Timestamp.now().toMillis();
     let gameTime = gameEndTime - gameStartTime;
-    console.log("gametime", gameTime);
     setGameTime(gameTime);
     postResult(player, gameTime);
   };
