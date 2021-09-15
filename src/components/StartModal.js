@@ -46,6 +46,28 @@ const StartModal = (props) => {
           </Button>
         </Modal.Footer>
       </Form>
+      <div className="text-muted form-text ms-1">
+        Icon by{" "}
+        <a
+          href="https://www.flaticon.com/authors/dimitry-miroliubov"
+          title="Dimitry Miroliubov"
+        >
+          Dimitry Miroliubov
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          flaticon
+        </a>
+      </div>
+      <div className="text-muted form-text m-1 mt-0">
+        Background by{" "}
+        <a
+          href="https://www.instagram.com/danielkeoghart/"
+          title="Daniel Keogh"
+        >
+          Daniel Keogh
+        </a>
+      </div>
     </Modal>
   );
 };
