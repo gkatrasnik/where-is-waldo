@@ -1,6 +1,6 @@
 {
   "short_name": "Find Me!",
-  "name": "Where is Waldo style game",
+  "name": "Find me!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "gkatrasnik.github.io/where-is-waldo/",
   "display": "standalone",
   "theme_color": "#212529",
   "background_color": "#212529"
