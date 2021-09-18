@@ -1,8 +1,8 @@
 # Find me!
 
-## Where is Waldo style game
+Where is Waldo style game
 
-## Tools used:
+Tools used:
 - React JS
 - Firebase Firestore
 - React Bootstrap
