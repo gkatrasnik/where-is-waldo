@@ -11,4 +11,5 @@ Tools used:
 - Workbox PWA
 
 Find 5 characters displayed in navigation bar.\
-When character is found, it is not displayed any more.
+When character is found, it is not displayed any more.\
+When all characters are found, players result is stored to Firestore and leaderboard shows up.
