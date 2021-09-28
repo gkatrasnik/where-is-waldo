@@ -1,7 +1,7 @@
 # Find me!
 
 Where is Waldo style game\
-https://gkatrasnik.github.io/where-is-waldo/
+https://gkatrasnik.github.io/where-is-waldo
 
 Tools used:
 - React JS
