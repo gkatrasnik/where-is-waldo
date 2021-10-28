@@ -1,6 +1,6 @@
 # Find me!
 
-Where is Waldo style game\
+Responsive design, where is Waldo style game\
 https://gkatrasnik.github.io/where-is-waldo
 
 Tools used:
