@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
+  //hiiden api key
   apiKey: process.env.REACT_APP_APIKEY,
   authDomain: "where-is-waldo-fcfa2.firebaseapp.com",
   projectId: "where-is-waldo-fcfa2",
