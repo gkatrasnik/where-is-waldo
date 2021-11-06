@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAvQcbzXdQfFcp5j3LErFUWtHPik5Qfu38",
+  apiKey: process.env.REACT_APP_APIKEY,
   authDomain: "where-is-waldo-fcfa2.firebaseapp.com",
   projectId: "where-is-waldo-fcfa2",
   storageBucket: "where-is-waldo-fcfa2.appspot.com",
@@ -13,5 +13,4 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 
-//export const timestamp = db.Timestamp.now();
 export default app;
